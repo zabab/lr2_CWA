@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fetch</title>
+    <style>
+        button,
+        input {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: wheat;
+        }
+
+        button {
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input id="input13" type="text" value="8004">
+        <button id="button13" type="button">Отправить</button>
+    </div>
+    <script>
+        const URL = 'https://zababonina-2-zadanie.herokuapp.com'
+        const btn = document.getElementById('button13')
+        const input = document.getElementById('input13')
+
+        btn.addEventListener('click', send)
+
+        async function send() {
+            const response = await fetch(URL + '/login')
+            const data = await response.text()
+            input.value = data
+        }
+    </script>
+</body>
+
+</html>
